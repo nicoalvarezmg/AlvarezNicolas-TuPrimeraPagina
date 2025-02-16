@@ -33,7 +33,7 @@ git clone <URL_DEL_REPOSITORIO>
 cd <NOMBRE_DEL_PROYECTO>
 ```
 
-### 2. Crear un entorno virtual (opcional, pero recomendado)
+### 2. Crear un entorno virtual
 
 ```bash
 python -m venv venv
