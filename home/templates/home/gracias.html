@@ -21,7 +21,7 @@
             font-family: 'Montserrat', sans-serif;
             background-color: #f5f5f5;
             overflow-x: hidden;
-            padding-bottom: 80px; /* Añadido espacio para que el footer no se tape */
+            padding-bottom: 80px; 
         }
 
         /* Barra de navegación transparente con letras blancas y resaltado rojo */
@@ -30,7 +30,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Transparente */
+            background-color: rgba(0, 0, 0, 0.5); 
             color: white;
             padding: 15px 0;
             text-align: center;
@@ -40,10 +40,10 @@
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 30px; /* Aumentamos el espacio entre los enlaces */
+            margin: 0 30px; 
             font-size: 18px;
             font-weight: bold;
-            transition: color 0.3s, transform 0.3s; /* Agregamos un efecto suave de transformación */
+            transition: color 0.3s, transform 0.3s; 
         }
         nav a:hover {
             color: #FF5733; 
@@ -129,7 +129,7 @@
 
         /* Pie de página fijo en la parte inferior */
         .footer {
-            background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro */
+            background-color: rgba(0, 0, 0, 0.8); 
             color: white;
             text-align: center;
             padding: 15px;
@@ -170,7 +170,6 @@
 
 <body>
 
-    <!-- Barra de navegación -->
     <nav>
         <a href={% url "pipes_home" %}>Inicio</a>
         <a href={% url "sobre_nosotros" %}>Sobre Nosotros</a>
@@ -178,14 +177,12 @@
         <a href={% url "comentario" %} >Contacto</a>
     </nav>
 
-    <!-- Pantalla de agradecimiento sobre el carrusel -->
     <div class="gracias-container">
         <h1>¡Gracias por Contactarnos!</h1>
         <p>  </p>
         <p>En breve estaremos respondiendo tu consulta.</p>
     </div>
 
-    <!-- Carrusel de imágenes -->
     <section class="hero">
         <div class="hero-images">
             <img src="https://raw.githubusercontent.com/nicoalvarezmg/AlvarezNicolas-TuPrimeraPagina/refs/heads/main/fotos/Imagen%20de%20WhatsApp%202025-02-15%20a%20las%2021.04.49_adc29bd1.jpg"
@@ -197,11 +194,9 @@
         </div>
     </section>
 
-    <!-- Pie de página -->
     <div class="footer">
         © 2025 Pipe's Pastelería. Todos los derechos reservados.
     </div>
 
 </body>
-
 </html>

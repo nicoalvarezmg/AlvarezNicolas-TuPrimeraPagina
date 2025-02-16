@@ -20,7 +20,7 @@
             font-family: 'Montserrat', sans-serif;
             background-color: #f5f5f5;
             overflow-x: hidden;
-            padding-bottom: 80px; /* Añadido espacio para que el footer no se tape */
+            padding-bottom: 80px; 
         }
 
         /* Barra de navegación transparente con letras blancas y resaltado rojo */
@@ -29,7 +29,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Transparente */
+            background-color: rgba(0, 0, 0, 0.5); 
             color: white;
             padding: 15px 0;
             text-align: center;
@@ -39,10 +39,10 @@
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 30px; /* Aumentamos el espacio entre los enlaces */
+            margin: 0 30px; 
             font-size: 18px;
             font-weight: bold;
-            transition: color 0.3s, transform 0.3s; /* Agregamos un efecto suave de transformación */
+            transition: color 0.3s, transform 0.3s; 
         }
         nav a:hover {
             color: #FF5733;
@@ -81,27 +81,27 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%); /* Centrado absoluto */
+            transform: translate(-50%, -50%); 
             width: 80%;
             max-width: 800px;
             background-color: rgba(0, 0, 0, 0.5);
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            z-index: 2; /* Asegura que el formulario esté por encima del carrusel */
+            z-index: 2; 
         }
 
         h1 {
             text-align: center;
             font-size: 32px;
             margin-bottom: 30px;
-            color: #FF5733;
+            color: #f5f5f5;
         }
 
         label {
             font-size: 18px;
             margin-bottom: 10px;
-            color: #FF5733;
+            color: #f5f5f5;
         }
 
         input[type="text"], input[type="email"], textarea {
@@ -134,7 +134,7 @@
 
         /* Pie de página fijo en la parte inferior */
         .footer {
-            background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro */
+            background-color: rgba(0, 0, 0, 0.8); 
             color: white;
             text-align: center;
             padding: 15px;
@@ -147,7 +147,6 @@
 </head>
 <body>
 
-    <!-- Barra de navegación -->
     <nav>
         <a href={% url "pipes_home" %}>Inicio</a>
         <a href={% url "sobre_nosotros" %}>Sobre Nosotros</a>
@@ -155,7 +154,6 @@
         <a href={% url "comentario" %} >Contacto</a>
     </nav>
 
-    <!-- Carrusel de imágenes -->
     <section class="hero">
         <div class="hero-images">
             <img src="https://raw.githubusercontent.com/nicoalvarezmg/AlvarezNicolas-TuPrimeraPagina/refs/heads/main/fotos/Imagen%20de%20WhatsApp%202025-02-15%20a%20las%2021.04.49_adc29bd1.jpg" alt="Imagen 1">
@@ -164,39 +162,19 @@
         </div>
     </section>
 
-    <!-- Formulario de contacto sobre el carrusel -->
     <div class="form-container">
         <h1>Formulario de Contacto</h1>
 
         <form action="" method="POST">
             {% csrf_token %}
             {{ formulario }}
-
             <input type="submit" value="Enviar">
         </form>
     </div>
 
-    <!-- Pie de página -->
     <div class="footer">
         © 2025 Pipe's Pastelería. Todos los derechos reservados.
     </div>
-
-    <script>
-        // Función para mostrar o esconder el contenido cuando se selecciona un enlace
-        function showContent(section) {
-            // Ocultar todas las secciones
-            const sections = document.querySelectorAll('.content-section');
-            sections.forEach(section => {
-                section.style.display = 'none';
-            });
-
-            // Mostrar la sección seleccionada
-            const selectedSection = document.getElementById(section);
-            if (selectedSection) {
-                selectedSection.style.display = 'block';
-            }
-        }
-    </script>
 
 </body>
 </html>

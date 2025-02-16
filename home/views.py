@@ -8,11 +8,8 @@ from home.forms import CrearContacto, BuscarProducto
 def home(request):
    return render(request, 'home/home.html')
 
-def comentario(request):
-   print(request.POST)
-   
+def comentario(request):   
    formulario = CrearContacto()
-   
    if request.method == "POST":
       formulario = CrearContacto(request.POST)
       if formulario.is_valid():
