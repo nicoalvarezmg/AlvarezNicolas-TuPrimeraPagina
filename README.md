@@ -52,7 +52,13 @@ pip install -r requirements.txt
 python manage.py migrate
 ```
 
-### 5. Ejecutar el servidor de desarrollo
+### 5. Instalar la base de datos de productos inicial
+
+```bash
+python manage.py loaddata initial_data.json
+```
+
+### 6. Ejecutar el servidor de desarrollo
 
 ```bash
 python manage.py runserver
