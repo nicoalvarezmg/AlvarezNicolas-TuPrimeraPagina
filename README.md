@@ -19,6 +19,7 @@ Este es un proyecto desarrollado en Python utilizando el framework Django. Conti
 - proyecto/             # Carpeta con las configuraciones principales del proyecto
 - templates/            # Carpeta global de templates (ej. base.html) Ahora no se esta usando pero la idea es luego heredar las configuraciones principales de esta carpeta.
 - manage.py             # Archivo principal para ejecutar comandos Django
+- initial_data.json     # JSON con datos iniciales de productos
 - requirements.txt      # Lista de dependencias necesarias para el proyecto
 - .gitignore            # Archivo para excluir archivos innecesarios del control de versiones
 
