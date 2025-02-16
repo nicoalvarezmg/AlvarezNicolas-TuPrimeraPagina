@@ -9,6 +9,7 @@ Este es un proyecto desarrollado en Python utilizando el framework Django. Conti
 ```
 - fotos/                # Carpeta para almacenar imágenes
 - home/                 # Carpeta principal del proyecto
+  - migrations/         # Carpeta que contiene las migraciones de los modelos
   - templates/          # Archivos HTML para la vista
   - forms.py            # Formularios de Django
   - models.py           # Definición de modelos de base de datos
