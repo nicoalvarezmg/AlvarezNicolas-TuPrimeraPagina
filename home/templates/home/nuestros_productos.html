@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Contacto - Pipe's Pastelería</title>
+    <title>Lista de productos - Pipe's Pastelería</title>
+
     <link rel="icon" href="https://raw.githubusercontent.com/nicoalvarezmg/AlvarezNicolas-TuPrimeraPagina/refs/heads/main/fotos/Logo%20Pipes.png" type="image/png">
-    
-    <style>
-    /* Estilo
+
     <style>
         /* Estilos globales */
         * {
@@ -15,21 +14,20 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Montserrat', sans-serif;
             background-color: #f5f5f5;
             overflow-x: hidden;
-            padding-bottom: 80px; /* Añadido espacio para que el footer no se tape */
+            padding-bottom: 80px;
         }
 
-        /* Barra de navegación transparente con letras blancas y resaltado rojo */
+        /* Barra de navegación */
         nav {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Transparente */
+            background-color: rgba(0, 0, 0, 0.5);
             color: white;
             padding: 15px 0;
             text-align: center;
@@ -39,10 +37,10 @@
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 30px; /* Aumentamos el espacio entre los enlaces */
+            margin: 0 30px;
             font-size: 18px;
             font-weight: bold;
-            transition: color 0.3s, transform 0.3s; /* Agregamos un efecto suave de transformación */
+            transition: color 0.3s, transform 0.3s;
         }
         nav a:hover {
             color: #FF5733;
@@ -76,19 +74,65 @@
             100% { transform: translateX(0); }
         }
 
-        /* Formulario de contacto sobre el carrusel */
-        .form-container {
+        /* Estilos para cada producto */
+        .producto {
+            width: 200px;
+            padding: 10px;
+            background: #FF5733; 
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(255, 255, 255, 0.37);
+            transition: transform 0.3s;
+        }
+        .producto:hover {
+            transform: scale(1.05);
+        }
+        .producto img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .producto h3 {
+            font-size: 16px;
+            margin: 10px 0;
+            color: #f5f5f5;
+        }
+        .producto p {
+            font-size: 14px;
+            color: #f5f5f5;
+            font-weight: bold;
+        }
+
+        /* Estilos del contenedor de productos */
+        .productos-container {
             position: absolute;
-            top: 50%;
+            top: 50%;  
             left: 50%;
-            transform: translate(-50%, -50%); /* Centrado absoluto */
+            transform: translateX(-50%);
             width: 80%;
-            max-width: 800px;
-            background-color: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.5);
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            z-index: 2; /* Asegura que el formulario esté por encima del carrusel */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            z-index: 2;
+        }
+
+        /* Estilos del buscador */
+        .buscador {
+            position: absolute;
+            top: 15%; 
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            width: 80%;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
         }
 
         h1 {
@@ -101,44 +145,32 @@
         label {
             font-size: 18px;
             margin-bottom: 10px;
-            color: #FF5733;
-        }
-
-        input[type="text"], input[type="email"], textarea {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
             color: #f5f5f5;
-            background-color:  rgba(255, 88, 51, 0.07);
-            box-sizing: border-box;
         }
 
-        input[type="submit"] {
-            padding: 15px 30px;
-            background-color: #FF5733;
-            border: none;
-            color: white;
+        .buscador input[type="text"] {
+            width: 80%;
+            padding: 15px;
             font-size: 18px;
-            font-weight: bold;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+            border-radius: 25px;
+            border: 1px solid #ccc;
+            outline: none;
+            box-shadow: 0 0 5px rgb(0, 0, 0);
+            color: #f5f5f5;
+            background-color: rgba(255, 88, 51, 0.07);
+            transition: border-color 0.3s;
         }
 
-        input[type="submit"]:hover {
-            background-color: #f5f5f5;
+        .buscador input[type="text"]:focus {
+            border-color: #FF5733;
         }
 
-        /* Pie de página fijo en la parte inferior */
+        /* Pie de página */
         .footer {
-            background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro */
+            background-color: rgba(0, 0, 0, 0.8);
             color: white;
             text-align: center;
             padding: 15px;
-            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
             position: fixed;
             bottom: 0;
             width: 100%;
@@ -162,19 +194,26 @@
             <img src="https://raw.githubusercontent.com/nicoalvarezmg/AlvarezNicolas-TuPrimeraPagina/refs/heads/main/fotos/Imagen%20de%20WhatsApp%202025-02-15%20a%20las%2021.04.49_2a6dd3ce.jpg" alt="Imagen 2">
             <img src="https://raw.githubusercontent.com/nicoalvarezmg/AlvarezNicolas-TuPrimeraPagina/refs/heads/main/fotos/Imagen%20de%20WhatsApp%202025-02-15%20a%20las%2021.04.49_6a608009.jpg" alt="Imagen 3">
         </div>
+
+        <!-- Buscador sobre el carrusel -->
+        <div class="buscador">
+            <h1>Buscar Producto</h1>
+            <form method="">
+                {{ formulario.nombre }}
+            </form>
+        </div>
+
+        <!-- Contenedor de productos sobre el carrusel -->
+        <div class="productos-container">
+            {% for producto in productos %}
+                <div class="producto">
+                    <img src="{{ producto.foto }}" alt="{{ producto.nombre }}">
+                    <h3>{{ producto.nombre }}</h3>
+                    <p>${{ producto.precio }}</p>
+                </div>
+            {% endfor %}
+        </div>
     </section>
-
-    <!-- Formulario de contacto sobre el carrusel -->
-    <div class="form-container">
-        <h1>Formulario de Contacto</h1>
-
-        <form action="" method="POST">
-            {% csrf_token %}
-            {{ formulario }}
-
-            <input type="submit" value="Enviar">
-        </form>
-    </div>
 
     <!-- Pie de página -->
     <div class="footer">
@@ -182,15 +221,13 @@
     </div>
 
     <script>
-        // Función para mostrar o esconder el contenido cuando se selecciona un enlace
+        // Función para mostrar contenido al hacer clic en la navegación
         function showContent(section) {
-            // Ocultar todas las secciones
             const sections = document.querySelectorAll('.content-section');
             sections.forEach(section => {
                 section.style.display = 'none';
             });
 
-            // Mostrar la sección seleccionada
             const selectedSection = document.getElementById(section);
             if (selectedSection) {
                 selectedSection.style.display = 'block';
@@ -200,5 +237,4 @@
 
 </body>
 </html>
-
 

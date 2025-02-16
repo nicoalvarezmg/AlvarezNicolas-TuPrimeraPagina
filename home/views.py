@@ -1,15 +1,12 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from home.models import Contacto
-from home.forms import CrearContacto
+from home.models import Contacto, Productos
+from home.forms import CrearContacto, BuscarProducto
 
 # Create your views here.
 
 def home(request):
    return render(request, 'home/home.html')
-
-def gracias(request):
-   return render(request, 'home/gracias.html')
 
 def comentario(request):
    print(request.POST)
@@ -30,3 +27,19 @@ def comentario(request):
 
          
    return render(request, 'home/comentario.html', {'formulario' : formulario})
+
+
+def gracias(request):
+   return render(request, 'home/gracias.html')
+
+def nuestros_productos(request):
+   productos = Productos.objects.all()
+   formulario = BuscarProducto(request.GET)
+   if formulario.is_valid():
+      producto_a_buscar = formulario.cleaned_data.get('nombre')
+      productos = Productos.objects.filter(nombre__icontains=producto_a_buscar)
+      
+   return render(request, 'home/nuestros_productos.html', {'productos': productos, 'formulario': formulario})
+
+def sobre_nosotros(request):
+   return render(request, 'home/sobre_nosotros.html')

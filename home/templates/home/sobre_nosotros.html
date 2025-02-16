@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Contacto - Pipe's Pastelería</title>
+    <title>Sobre Nosotros - Pipe's Pastelería</title>
+
     <link rel="icon" href="https://raw.githubusercontent.com/nicoalvarezmg/AlvarezNicolas-TuPrimeraPagina/refs/heads/main/fotos/Logo%20Pipes.png" type="image/png">
-    
-    <style>
-    /* Estilo
+
     <style>
         /* Estilos globales */
         * {
@@ -15,21 +14,19 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Montserrat', sans-serif;
             background-color: #f5f5f5;
             overflow-x: hidden;
-            padding-bottom: 80px; /* Añadido espacio para que el footer no se tape */
         }
 
-        /* Barra de navegación transparente con letras blancas y resaltado rojo */
+        /* Barra de navegación */
         nav {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Transparente */
+            background-color: rgba(0, 0, 0, 0.5);
             color: white;
             padding: 15px 0;
             text-align: center;
@@ -39,17 +36,17 @@
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 30px; /* Aumentamos el espacio entre los enlaces */
+            margin: 0 30px;
             font-size: 18px;
             font-weight: bold;
-            transition: color 0.3s, transform 0.3s; /* Agregamos un efecto suave de transformación */
+            transition: color 0.3s, transform 0.3s;
         }
         nav a:hover {
             color: #FF5733;
             transform: scale(1.1);
         }
 
-        /* Carrusel de imágenes */
+        /* Carrusel de fondo */
         .hero {
             position: relative;
             width: 100%;
@@ -76,22 +73,20 @@
             100% { transform: translateX(0); }
         }
 
-        /* Formulario de contacto sobre el carrusel */
-        .form-container {
+        /* Contenedor de sobre nosotros */
+        .sobre-nosotros {
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%); /* Centrado absoluto */
+            background: rgba(0, 0, 0, 0.5);
+            transform: translate(-50%, -50%);
+            color: white;
+            z-index: 2;
+            text-align: center;
             width: 80%;
-            max-width: 800px;
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            z-index: 2; /* Asegura que el formulario esté por encima del carrusel */
         }
 
-        h1 {
+        .sobre-nosotros h1 {
             text-align: center;
             font-size: 32px;
             margin-bottom: 30px;
@@ -101,44 +96,52 @@
         label {
             font-size: 18px;
             margin-bottom: 10px;
-            color: #FF5733;
+            color: #f5f5f5;
         }
 
-        input[type="text"], input[type="email"], textarea {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+        .sobre-nosotros p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #f5f5f5;
+        }
+
+        .sobre-nosotros .valores {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .valor {
+            width: 250px;
+            background: rgba(255, 88, 51, 0.25);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .valor h3 {
+            text-align: center;
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #f5f5f5;
+        }
+
+        .valor p {
             font-size: 16px;
             color: #f5f5f5;
-            background-color:  rgba(255, 88, 51, 0.07);
-            box-sizing: border-box;
         }
 
-        input[type="submit"] {
-            padding: 15px 30px;
-            background-color: #FF5733;
-            border: none;
-            color: white;
-            font-size: 18px;
-            font-weight: bold;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #f5f5f5;
-        }
-
-        /* Pie de página fijo en la parte inferior */
+        /* Pie de página */
         .footer {
-            background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro */
+            background-color: rgba(0, 0, 0, 0.8);
             color: white;
             text-align: center;
             padding: 15px;
-            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
             position: fixed;
             bottom: 0;
             width: 100%;
@@ -152,53 +155,51 @@
         <a href={% url "pipes_home" %}>Inicio</a>
         <a href={% url "sobre_nosotros" %}>Sobre Nosotros</a>
         <a href={% url "productos" %}>Nuestros Productos</a>
-        <a href={% url "comentario" %} >Contacto</a>
+        <a href={% url "comentario" %}>Contacto</a>
     </nav>
 
-    <!-- Carrusel de imágenes -->
+    <!-- Carrusel de fondo -->
     <section class="hero">
         <div class="hero-images">
             <img src="https://raw.githubusercontent.com/nicoalvarezmg/AlvarezNicolas-TuPrimeraPagina/refs/heads/main/fotos/Imagen%20de%20WhatsApp%202025-02-15%20a%20las%2021.04.49_adc29bd1.jpg" alt="Imagen 1">
             <img src="https://raw.githubusercontent.com/nicoalvarezmg/AlvarezNicolas-TuPrimeraPagina/refs/heads/main/fotos/Imagen%20de%20WhatsApp%202025-02-15%20a%20las%2021.04.49_2a6dd3ce.jpg" alt="Imagen 2">
             <img src="https://raw.githubusercontent.com/nicoalvarezmg/AlvarezNicolas-TuPrimeraPagina/refs/heads/main/fotos/Imagen%20de%20WhatsApp%202025-02-15%20a%20las%2021.04.49_6a608009.jpg" alt="Imagen 3">
         </div>
+        
+        <!-- Contenido sobre nosotros sobre el carrusel -->
+        <div class="sobre-nosotros">
+            <p></p>
+            <h1>Sobre Nosotros</h1>
+            <p>En Pipe's Pastelería nos especializamos en la creación de viennoiserie artesanal, destacándonos en la elaboración de medialunas, croissants y otros deliciosos productos laminados. Nuestra pasión por la pastelería nos lleva a ofrecer a nuestros clientes un sabor único en cada bocado.</p>
+            <p>Con años de experiencia, trabajamos con los mejores ingredientes y técnicas tradicionales para producir productos frescos, suaves y sabrosos. En Pipe's Pastelería nos enorgullece ser parte de la tradición de la pastelería francesa, fusionándola con el toque casero que caracteriza nuestra marca.</p>
+            
+            <p></p>
+            <h1>Nuestros Valores</h1>
+            <div class="valores">
+                <div class="valor">
+                    <h3>Calidad</h3>
+                    <p>Nos comprometemos a utilizar solo los mejores ingredientes para garantizar un sabor excepcional en cada producto.</p>
+                </div>
+                <div class="valor">
+                    <h3>Pasión</h3>
+                    <p>Amamos lo que hacemos y nos esforzamos por ofrecer productos que hagan feliz a cada cliente.</p>
+                </div>
+                <div class="valor">
+                    <h3>Innovación</h3>
+                    <p>Siempre estamos buscando nuevas formas de sorprenderte con sabores y diseños únicos.</p>
+                </div>
+            </div>
+            <p></p>
+        </div>
     </section>
-
-    <!-- Formulario de contacto sobre el carrusel -->
-    <div class="form-container">
-        <h1>Formulario de Contacto</h1>
-
-        <form action="" method="POST">
-            {% csrf_token %}
-            {{ formulario }}
-
-            <input type="submit" value="Enviar">
-        </form>
-    </div>
 
     <!-- Pie de página -->
     <div class="footer">
         © 2025 Pipe's Pastelería. Todos los derechos reservados.
     </div>
 
-    <script>
-        // Función para mostrar o esconder el contenido cuando se selecciona un enlace
-        function showContent(section) {
-            // Ocultar todas las secciones
-            const sections = document.querySelectorAll('.content-section');
-            sections.forEach(section => {
-                section.style.display = 'none';
-            });
-
-            // Mostrar la sección seleccionada
-            const selectedSection = document.getElementById(section);
-            if (selectedSection) {
-                selectedSection.style.display = 'block';
-            }
-        }
-    </script>
-
 </body>
 </html>
+
 
 

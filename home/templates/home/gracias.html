@@ -37,18 +37,17 @@
             z-index: 100;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
-
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 20px;
+            margin: 0 30px; /* Aumentamos el espacio entre los enlaces */
             font-size: 18px;
             font-weight: bold;
-            transition: color 0.3s;
+            transition: color 0.3s, transform 0.3s; /* Agregamos un efecto suave de transformación */
         }
-
         nav a:hover {
-            color: red; /* Resaltado en rojo */
+            color: #FF5733; 
+            transform: scale(1.1);
         }
 
         /* Carrusel de imágenes */
@@ -146,7 +145,7 @@
             top: 20%;
             left: 50%;
             transform: translateX(-50%);
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(0, 0, 0, 0.5);
             padding: 30px;
             border-radius: 10px;
             text-align: center;
@@ -164,7 +163,7 @@
 
         .gracias-container p {
             font-size: 18px;
-            color: #333;
+            color:rgb(255, 255, 255);
         }
     </style>
 </head>
@@ -173,15 +172,16 @@
 
     <!-- Barra de navegación -->
     <nav>
-        <a href="/pipes-home/">Inicio</a>
-        <a href="#">Sobre Nosotros</a>
-        <a href="#">Nuestros Productos</a>
-        <a href="/contacto/">Contacto</a>
+        <a href={% url "pipes_home" %}>Inicio</a>
+        <a href={% url "sobre_nosotros" %}>Sobre Nosotros</a>
+        <a href={% url "productos" %}>Nuestros Productos</a>
+        <a href={% url "comentario" %} >Contacto</a>
     </nav>
 
     <!-- Pantalla de agradecimiento sobre el carrusel -->
     <div class="gracias-container">
         <h1>¡Gracias por Contactarnos!</h1>
+        <p>  </p>
         <p>En breve estaremos respondiendo tu consulta.</p>
     </div>
 

@@ -43,8 +43,8 @@
             transition: color 0.3s, transform 0.3s; /* Agregamos un efecto suave de transformación */
         }
         nav a:hover {
-            color: red; /* Resaltado en rojo */
-            transform: scale(1.1); /* Un pequeño zoom al pasar el cursor */
+            color: #FF5733; 
+            transform: scale(1.1);
         }
 
         /* Carrusel de imágenes */
@@ -88,10 +88,10 @@
         /* Contenedor del logo y título alineado a la izquierda */
         .hero-header {
             display: flex;
-            align-items: center;
-            gap: 20px;
-            justify-content: flex-start; /* Alinea los elementos a la izquierda */
-            padding-left: 20px; /* Espacio a la izquierda */
+            flex-direction: column; /* Apila el logo y el texto verticalmente */
+            align-items: center; /* Centra los elementos */
+            gap: 20px; /* Espacio entre el logo y el texto */
+            justify-content: center;
         }
 
         .hero-header h1 {
@@ -103,7 +103,7 @@
 
         /* Logo en la parte inicial */
         .logo {
-            width: 300px; /* Logo con tamaño ajustado */
+            width: 350px; /* Logo con tamaño ajustado */
             height: 300px; /* Ajuste de altura */
         }
 
@@ -158,10 +158,10 @@
 
     <!-- Barra de navegación -->
     <nav>
-        <a href="#" class="active">Inicio</a>
-        <a href="javascript:void(0);" onclick="showContent('sobre-nosotros')">Sobre Nosotros</a>
-        <a href="javascript:void(0);" onclick="showContent('nuestros-productos')">Nuestros Productos</a>
-        <a href="/contacto/" onclick="showContent('contacto')">Contacto</a>
+        <a href={% url "pipes_home" %}>Inicio</a>
+        <a href={% url "sobre_nosotros" %}>Sobre Nosotros</a>
+        <a href={% url "productos" %}>Nuestros Productos</a>
+        <a href={% url "comentario" %} >Contacto</a>
     </nav>
 
     <!-- Carrusel de imágenes -->
@@ -177,7 +177,7 @@
             <!-- Contenedor del logo y el título alineado a la izquierda -->
             <div class="hero-header">
                 <img src="https://raw.githubusercontent.com/nicoalvarezmg/AlvarezNicolas-TuPrimeraPagina/refs/heads/main/fotos/Logo%20Pipes%20Blanco.png" alt="Logo" class="logo">
-                <h1>Bienvenido/a a Pipe's Pastelería</h1>
+                <h1>Estas listo/a para probar las mejores medialunas de CABA?</h1>
             </div>
         </div>
     </section>
