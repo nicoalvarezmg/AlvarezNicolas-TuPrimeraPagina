@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Pipe's Pastelería</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Contacto - Pipe's Pastelería</title>
+    <link rel="icon" href="https://raw.githubusercontent.com/nicoalvarezmg/AlvarezNicolas-TuPrimeraPagina/refs/heads/main/fotos/Logo%20Pipes.png" type="image/png">
     
-        <link rel="icon" href="https://raw.githubusercontent.com/nicoalvarezmg/AlvarezNicolas-TuPrimeraPagina/refs/heads/main/fotos/Logo%20Pipes.png" type="image/png">
-    
-        <style>
+    <style>
+    /* Estilo
+    <style>
         /* Estilos globales */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             font-family: 'Montserrat', sans-serif;
             background-color: #f5f5f5;
@@ -21,7 +23,7 @@
             padding-bottom: 80px; /* Añadido espacio para que el footer no se tape */
         }
 
-        /* Barra de navegación transparente con letras blancas y resaltado rojo */
+        /* Barra de navegación */
         nav {
             position: fixed;
             top: 0;
@@ -37,14 +39,13 @@
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 30px; /* Aumentamos el espacio entre los enlaces */
+            margin: 0 20px;
             font-size: 18px;
             font-weight: bold;
-            transition: color 0.3s, transform 0.3s; /* Agregamos un efecto suave de transformación */
+            transition: color 0.3s;
         }
         nav a:hover {
             color: red; /* Resaltado en rojo */
-            transform: scale(1.1); /* Un pequeño zoom al pasar el cursor */
         }
 
         /* Carrusel de imágenes */
@@ -74,42 +75,59 @@
             100% { transform: translateX(0); }
         }
 
-        /* Contenido sobre el carrusel */
-        .hero-content {
+        /* Formulario de contacto sobre el carrusel */
+        .form-container {
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
+            transform: translate(-50%, -50%); /* Centrado absoluto */
+            width: 80%;
+            max-width: 800px;
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semitransparente */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 2; /* Asegura que el formulario esté por encima del carrusel */
+        }
+
+        h1 {
             text-align: center;
-            z-index: 1;
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: #333;
         }
 
-        /* Contenedor del logo y título alineado a la izquierda */
-        .hero-header {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            justify-content: flex-start; /* Alinea los elementos a la izquierda */
-            padding-left: 20px; /* Espacio a la izquierda */
+        label {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #555;
         }
 
-        .hero-header h1 {
-            font-size: 40px; /* Título más pequeño */
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #f9f9f9;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            padding: 15px 30px;
+            background-color: #FF5733;
+            border: none;
+            color: white;
+            font-size: 18px;
             font-weight: bold;
-            margin-top: 20px;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
-        /* Logo en la parte inicial */
-        .logo {
-            width: 300px; /* Logo con tamaño ajustado */
-            height: 300px; /* Ajuste de altura */
-        }
-
-        /* Sección oculta por defecto (no mostrar contenido al hacer clic) */
-        .content-section {
-            display: none;
+        input[type="submit"]:hover {
+            background-color: #c44223;
         }
 
         /* Pie de página fijo en la parte inferior */
@@ -118,39 +136,10 @@
             color: white;
             text-align: center;
             padding: 15px;
-            box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.3); /* Añadimos más sombra */
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
             position: fixed;
             bottom: 0;
             width: 100%;
-        }
-
-        /* Estilos responsivos */
-        @media (max-width: 768px) {
-            /* Aseguramos que el carrusel se ajuste bien en pantallas más pequeñas */
-            .hero-images {
-                width: 100%;
-                display: block;
-            }
-            .hero-images img {
-                width: 100%;
-                height: auto;
-            }
-
-            /* Alineamos el logo y título a la izquierda para dispositivos pequeños */
-            .hero-header {
-                flex-direction: column;
-                text-align: center;
-                padding-left: 0;
-            }
-
-            .hero-header h1 {
-                font-size: 30px; /* Reducimos el tamaño del título en pantallas pequeñas */
-            }
-
-            .logo {
-                width: 300px; /* Ajustamos el tamaño del logo */
-                height: 350px;
-            }
         }
     </style>
 </head>
@@ -158,10 +147,10 @@
 
     <!-- Barra de navegación -->
     <nav>
-        <a href="#" class="active">Inicio</a>
+        <a href="/pipes-home/">Inicio</a>
         <a href="javascript:void(0);" onclick="showContent('sobre-nosotros')">Sobre Nosotros</a>
         <a href="javascript:void(0);" onclick="showContent('nuestros-productos')">Nuestros Productos</a>
-        <a href="/contacto/" onclick="showContent('contacto')">Contacto</a>
+        <a href="javascript:void(0);" onclick="showContent('contacto')">Contacto</a>
     </nav>
 
     <!-- Carrusel de imágenes -->
@@ -171,29 +160,19 @@
             <img src="https://raw.githubusercontent.com/nicoalvarezmg/AlvarezNicolas-TuPrimeraPagina/refs/heads/main/fotos/Imagen%20de%20WhatsApp%202025-02-15%20a%20las%2021.04.49_2a6dd3ce.jpg" alt="Imagen 2">
             <img src="https://raw.githubusercontent.com/nicoalvarezmg/AlvarezNicolas-TuPrimeraPagina/refs/heads/main/fotos/Imagen%20de%20WhatsApp%202025-02-15%20a%20las%2021.04.49_6a608009.jpg" alt="Imagen 3">
         </div>
-
-        <!-- Contenido sobre el carrusel -->
-        <div class="hero-content">
-            <!-- Contenedor del logo y el título alineado a la izquierda -->
-            <div class="hero-header">
-                <img src="https://raw.githubusercontent.com/nicoalvarezmg/AlvarezNicolas-TuPrimeraPagina/refs/heads/main/fotos/Logo%20Pipes%20Blanco.png" alt="Logo" class="logo">
-                <h1>Bienvenido/a a Pipe's Pastelería</h1>
-            </div>
-        </div>
     </section>
 
-    <!-- Secciones de contenido (vacías) -->
-    <section id="sobre-nosotros" class="content-section">
-        <!-- Aquí puedes agregar contenido más tarde -->
-    </section>
+    <!-- Formulario de contacto sobre el carrusel -->
+    <div class="form-container">
+        <h1>Formulario de Contacto</h1>
 
-    <section id="nuestros-productos" class="content-section">
-        <!-- Aquí puedes agregar contenido más tarde -->
-    </section>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ formulario }}
 
-    <section id="contacto" class="content-section">
-        <!-- Aquí puedes agregar contenido más tarde -->
-    </section>
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
 
     <!-- Pie de página -->
     <div class="footer">
@@ -219,3 +198,5 @@
 
 </body>
 </html>
+
+
