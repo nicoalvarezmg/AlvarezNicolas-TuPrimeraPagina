@@ -7,6 +7,7 @@ Este es un proyecto desarrollado en Python utilizando el framework Django. Conti
 ## Estructura del Proyecto
 
 ```
+
 - fotos/                # Carpeta para almacenar imágenes
 - home/                 # Carpeta principal del proyecto
   - migrations/         # Carpeta que contiene las migraciones de los modelos
@@ -15,8 +16,12 @@ Este es un proyecto desarrollado en Python utilizando el framework Django. Conti
   - models.py           # Definición de modelos de base de datos
   - views.py            # Lógica de las vistas
   - urls.py             # Definición de rutas
+- proyecto/             # Carpeta con las configuraciones principales del proyecto
+- templates/            # Carpeta global de templates (ej. base.html) Ahora no se esta usando pero la idea es luego heredar las configuraciones principales de esta carpeta.
 - manage.py             # Archivo principal para ejecutar comandos Django
 - requirements.txt      # Lista de dependencias necesarias para el proyecto
+- .gitignore            # Archivo para excluir archivos innecesarios del control de versiones
+
 ```
 
 ## Instalación
