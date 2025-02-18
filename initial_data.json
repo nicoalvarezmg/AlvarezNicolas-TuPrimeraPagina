@@ -25,7 +25,7 @@
     "model": "home.productos",
     "pk": 3,
     "fields": {
-      "nombre": "Cinnamon Roll",
+      "nombre": "Apple Roll",
       "fecha_creacion": "2025-02-16T16:46:36.806Z",
       "foto": "https://raw.githubusercontent.com/nicoalvarezmg/AlvarezNicolas-TuPrimeraPagina/refs/heads/main/fotos/Imagen%20de%20WhatsApp%202025-02-15%20a%20las%2021.04.49_6a608009.jpg",
       "precio": 2800.0,
