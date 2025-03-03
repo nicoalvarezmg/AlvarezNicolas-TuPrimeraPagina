@@ -76,8 +76,7 @@
     /* Cambio de borde al enfocar los campos */
     form input[type="text"]:focus,
     form input[type="email"]:focus,
-    form input[type="file"]:focus,
-    form input[type="number"]:focus,
+    form input[type="number"]: focus,
     form input[type="date"]:focus,
     form textarea:focus {
         border-color: #FF5733; 
@@ -98,6 +97,9 @@
         text-decoration: none;
         position: relative;
         transition: all 0.3s ease;
+        margin-top: 20px;
+        margin-left: 20px;
+        display: inline-block;   /* Asegura que el botón se muestre como bloque */
     }
     
     /* Efecto hover para el botón de submit */
@@ -142,14 +144,16 @@
 
 <!-- Contenedor del formulario -->
 <div class="form-container1">
-    <h1>Modificar Producto</h1>
+    <h1>Crear Producto</h1>
 
-    <form method="POST" enctype="multipart/form-data">
+    <form action={% url "crear_producto" %} method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form.as_p }}  
-        <button type="submit">Guardar cambios</button>
-      </form>
-    
-      <a href="{% url 'productos' %}">Volver a la lista de productos</a>
-</div>
-    {% endblock %}
+
+        {{formulario.as_p}}
+        
+        <button type="button" class="btn-submit" onclick="window.location.href='{% url 'productos' %}'">Volver</button>
+        <input type="submit" value="Crear" class='btn-submit'>
+    </form>
+</div> 
+
+{% endblock contenido %}

@@ -4,9 +4,9 @@ from django.contrib.auth.models import User
 class Productos(models.Model):
     nombre = models.CharField(max_length=30)
     fecha_creacion = models.DateTimeField(auto_now_add=True)
-    foto = models.ImageField(upload_to="static/img", blank=False, null=False)
+    foto = models.ImageField(upload_to="avatares", blank=True, null=True)
     precio = models.FloatField(blank=False, null=False)
-    stock = models.IntegerField(blank=True, null=True)
+    stock = models.IntegerField(blank=False, null=False)
     descripcion = models.TextField(blank=True, null=True)
     
     def __str__(self):

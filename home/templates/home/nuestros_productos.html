@@ -8,6 +8,8 @@
         text-align: center;
         box-shadow: 0 2px 6px rgba(255, 255, 255, 0.37);
         transition: transform 0.3s;
+        margin-bottom: 20px;  /* Espaciado adicional entre los productos */
+
     }
     .producto:hover {
         transform: scale(1.05);
@@ -44,6 +46,8 @@
         justify-content: center;
         gap: 20px;
         z-index: 2;
+        max-height: 600px;  /* Ajusta la altura según tus necesidades */
+        overflow-y: auto;  /* Activa el scroll vertical si el contenido excede la altura */        
     }
 
     /* Estilos del buscador */
@@ -107,6 +111,39 @@
         background-color: #f5f5f5;
         color: #FF5733;
     }
+
+    .btn-crear-producto {
+        background-color: #FF5733;
+        color: white;
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-weight: bold;
+        border: 2px solid white;
+        cursor: pointer;
+        font-size: 16px;
+        text-align: center;
+        text-decoration: none;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+    
+    .btn-crear-producto:hover {
+        background-color: #f5f5f5;
+        color: #FF5733; /* Cambia el color del texto si lo deseas */
+        border-color: #FF5733; /* Cambia el borde si lo deseas */
+    }
+
+    .crear {
+        position: fixed;
+        top: 45%;  /* Centra el div verticalmente */
+        left: 0;  /* Ubica el div en el costado derecho */
+        transform: translateY(-50%);  /* Ajusta el centro verticalmente para un ajuste perfecto */
+        width: 200px;  /* Ancho del div */
+        padding: 20px;
+        border-radius: 10px;
+        z-index: 2;  /* Asegura que se vea por encima de otros elementos */
+    }
+    
     
 </style>
 
@@ -121,6 +158,8 @@
             <img src={% static 'img/Medialuna1.jpg' %} alt="Imagen 2">
             <img src={% static 'img/Apple Roll.jpg' %} alt="Imagen 3">
         </div>
+
+
         <div class="buscador">
             <h1>Buscar Producto</h1>
             <form method="">
@@ -131,12 +170,20 @@
         <div class="productos-container">
             {% for producto in productos %}
             <div class="producto">
-                <img src="{{ producto.foto }}" alt="{{ producto.nombre }}">
+                {% if producto.foto %}
+                <img src="{{ producto.foto.url }}" onclick="window.location.href='{% url 'ver_productos' producto.id %}'" alt="{{ producto.nombre }}">
+            {% else %}
+                <img src="{% static 'img/LogoPipesBlanco.png' %}" onclick="window.location.href='{% url 'ver_productos' producto.id %}'" alt="Imagen no disponible">
+            {% endif %}
                 <h3>{{ producto.nombre }}</h3>
                 <p>${{ producto.precio }}</p>
                 <button type="button" class="btn-ver-mas" onclick="window.location.href='{% url 'ver_productos' producto.id %}'">Ver más</button>
             </div>
             {% endfor %}
+        </div>
+
+        <div class = "crear">
+            <button type="button" class="btn-crear-producto" onclick="window.location.href='{% url 'crear_producto' %}'">Crear Producto</button>
         </div>
 {% endblock contenido %}
 

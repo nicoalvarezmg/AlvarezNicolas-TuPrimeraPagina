@@ -41,8 +41,9 @@
         text-decoration: none;
         position: relative;
         transition: all 0.3s ease;
-        margin-top: 20px; /* Separa el botón del texto */
-        display: block;   /* Asegura que el botón se muestre como bloque */
+        margin-top: 20px;
+        margin-left: 20px;
+        display: inline-block;   /* Asegura que el botón se muestre como bloque */
     }
     
     /* Efecto hover para el botón de submit */
@@ -68,10 +69,13 @@
 </div>
 
 <div class="eliminar-container">
-<form action="" method="POST">
-    {% csrf_token %}
-    <p>Seguro desea eliminar {{productos.nombre}}?</p>
-    <input type="sumbit" class="btn-submit" value="Confirmar">
-</form>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <p>¿Seguro desea eliminar el producto?</p>
+    
+        <button type="button" class="btn-submit" onclick="window.location.href='{% url 'productos' %}'">Volver</button>
+    
+        <input type="submit" class="btn-submit" value="Confirmar">
+    </form>
 </div>
 {% endblock contenido %}

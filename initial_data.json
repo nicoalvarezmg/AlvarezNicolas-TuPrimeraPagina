@@ -6,7 +6,6 @@
     "fields": {
       "nombre": "Medialuna",
       "fecha_creacion": "2025-02-16T03:51:18.433Z",
-      "foto": "static/img/Medialuna.jpg",
       "precio": 2200.0,
       "stock": 20
     }
@@ -17,7 +16,6 @@
     "fields": {
       "nombre": "Croissant",
       "fecha_creacion": "2025-02-16T04:09:08.846Z",
-      "foto": "static/img/Croissant.jpg",
       "precio": 3500.0,
       "stock": 25
     }
@@ -28,7 +26,6 @@
     "fields": {
       "nombre": "Apple Roll",
       "fecha_creacion": "2025-02-16T16:46:36.806Z",
-      "foto": "static/img/Apple%20Roll.jpg",
       "precio": 2800.0,
       "stock": 33
     }
@@ -39,7 +36,6 @@
     "fields": {
       "nombre": "Danesa",
       "fecha_creacion": "2025-02-16T16:48:55.243Z",
-      "foto": "static/img/Danessa.jpg",
       "precio": 3500.0,
       "stock": 12
     }
@@ -50,7 +46,6 @@
     "fields": {
       "nombre": "Pain au Chocolat",
       "fecha_creacion": "2025-02-16T16:49:59.516Z",
-      "foto": "static/img/Pan%20de%20chocolate.jpg",
       "precio": 3900.0,
       "stock": 20
     }
