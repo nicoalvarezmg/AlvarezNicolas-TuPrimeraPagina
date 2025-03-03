@@ -50,6 +50,12 @@
         overflow-y: auto;  /* Activa el scroll vertical si el contenido excede la altura */        
     }
 
+    .productos-container h3 {
+        font-size: 16px;
+        margin: 10px 0;
+        color: #f5f5f5;
+    }
+
     /* Estilos del buscador */
     .buscador {
         position: absolute;
@@ -168,18 +174,23 @@
         </div>
 
         <div class="productos-container">
+          {% if productos %}
             {% for producto in productos %}
-            <div class="producto">
+             <div class="producto">
                 {% if producto.foto %}
-                <img src="{{ producto.foto.url }}" onclick="window.location.href='{% url 'ver_productos' producto.id %}'" alt="{{ producto.nombre }}">
-            {% else %}
-                <img src="{% static 'img/LogoPipesBlanco.png' %}" onclick="window.location.href='{% url 'ver_productos' producto.id %}'" alt="Imagen no disponible">
-            {% endif %}
-                <h3>{{ producto.nombre }}</h3>
-                <p>${{ producto.precio }}</p>
-                <button type="button" class="btn-ver-mas" onclick="window.location.href='{% url 'ver_productos' producto.id %}'">Ver más</button>
-            </div>
+                   <img src="{{ producto.foto.url }}" onclick="window.location.href='{% url 'ver_productos' producto.id %}'" alt="{{ producto.nombre }}">
+                {% else %}
+                   <img src="{% static 'img/LogoPipesBlanco.png' %}" onclick="window.location.href='{% url 'ver_productos' producto.id %}'" alt="Imagen no disponible">
+                {% endif %}
+                   <h3>{{ producto.nombre }}</h3>
+                   <p>${{ producto.precio }}</p>
+                   <button type="button" class="btn-ver-mas" onclick="window.location.href='{% url 'ver_productos' producto.id %}'">Ver más</button>
+             </div>
+
             {% endfor %}
+          {% else %}
+            <h3>No hay productos disponibles o con el nombre que estas buscando</h3>
+          {% endif %}
         </div>
 
         <div class = "crear">

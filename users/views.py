@@ -2,9 +2,13 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
 from django.contrib.auth import login as django_login
 from home.views import home
-from users.forms import CreacionUsuario, EdicionUsuario
+from users.forms import CreacionUsuario, EdicionUsuario, MiEdicionDePassword
 from django.contrib.auth.decorators import login_required
 from users.models import InfoExtra
+from django.contrib.auth.views import PasswordChangeView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse_lazy
+
 
 
 
@@ -56,16 +60,32 @@ def editar_perfil(request):
     if request.method == 'POST':
         formulario = EdicionUsuario(request.POST, request.FILES, instance=request.user)
         if formulario.is_valid():
+            formulario.save()
+
+            avatar = formulario.cleaned_data.get('avatar')
+            fecha_nacimiento = formulario.cleaned_data.get('fecha_nacimiento')
+
+            if 'avatar-clear' in request.POST:  
+                info_extra.avatar = None
+            elif avatar:  
+                info_extra.avatar = avatar 
             
-            if formulario.cleaned_data.get('avatar', 'fecha_nacimiento'):
-                info_extra.avatar = formulario.cleaned_data.get('avatar')
-                info_extra.fecha_nacimiento = formulario.cleaned_data.get('fecha_nacimiento')
-                
+            if fecha_nacimiento is not None:  
+                info_extra.fecha_nacimiento = fecha_nacimiento  
+
             info_extra.save()
-            formulario.save()       
+
+            return redirect('ver_perfil')     
                  
-            return redirect('pipes_home')
     else:
         formulario = EdicionUsuario(instance=request.user, initial={'avatar': info_extra.avatar, 'fecha_nacimiento': info_extra.fecha_nacimiento})
         
     return render(request, 'users/editar_perfil.html', {'formulario': formulario})
+
+class CambiarPasswordView(LoginRequiredMixin, PasswordChangeView):
+    form_class = MiEdicionDePassword 
+    template_name = "users/cambiar_password.html"  
+    success_url = reverse_lazy('cambio_exitoso')
+
+def cambio_exitoso(request):
+   return render(request, 'users/cambio_pass_exitoso.html')

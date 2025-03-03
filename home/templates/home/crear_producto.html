@@ -109,6 +109,30 @@
         border-color: #FF5733; /* Cambia el borde si lo deseas */
     }
 
+    /* Contenedor para centrar el enlace */
+    .volver-link {
+        text-align: center;  /* Centra el contenido del contenedor */
+        margin-top: 15px;     /* Espaciado superior */
+    }
+    
+    /* Estiliza el enlace dentro del párrafo */
+    .volver-link a {
+        color:rgb(255, 255, 255);  
+        font-weight: bold;  
+        text-decoration: none; 
+    }
+    
+    /* Cambia el color del enlace al pasar el mouse */
+    .volver-link a:hover {
+        color: #FF5733;  
+        text-decoration: underline; 
+    }
+    
+    /* Cambia el color del enlace cuando está seleccionado */
+    .volver-link a:active, 
+    .volver-link a:focus {
+        color: white;  /* Se vuelve blanco al hacer clic */
+    }
 
     
 
@@ -151,8 +175,10 @@
 
         {{formulario.as_p}}
         
-        <button type="button" class="btn-submit" onclick="window.location.href='{% url 'productos' %}'">Volver</button>
         <input type="submit" value="Crear" class='btn-submit'>
+        <p class="volver-link">
+            <a href="{% url 'productos' %}">Volver al listado de productos</a>.
+        </p>        
     </form>
 </div> 
 

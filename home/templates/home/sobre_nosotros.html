@@ -1,104 +1,96 @@
 <style>
-    /* Contenedor de sobre nosotros */
-    .sobre-nosotros {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        background: rgba(0, 0, 0, 0.5);
-        transform: translate(-50%, -50%);
-        color: white;
-        z-index: 2;
-        text-align: center;
-        width: 80%;
+    /* Estilos generales */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
     }
 
-    .sobre-nosotros h1 {
+    .sobre-mi {
+        background-color: white;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 900px;
+        margin: 50px auto;
+    }
+
+    .sobre-mi h1 {
         text-align: center;
         font-size: 32px;
-        margin-bottom: 30px;
-        color: #f5f5f5;
+        margin-bottom: 20px;
+        color: #333;
     }
 
-    label {
+    .sobre-mi p {
         font-size: 18px;
-        margin-bottom: 10px;
-        color: #f5f5f5;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        color: #555;
     }
 
-    .sobre-nosotros p {
-        font-size: 18px;
-        margin-bottom: 30px;
-        max-width: 800px;
-        margin-left: auto;
-        margin-right: auto;
-        color: #f5f5f5;
-    }
-
-    .sobre-nosotros .valores {
-        display: flex;
-        justify-content: center;
-        gap: 40px;
+    .datos-contacto {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 8px;
         margin-top: 40px;
     }
 
-    .valor {
-        width: 250px;
-        background: rgba(255, 88, 51, 0.25);
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    .datos-contacto h2 {
         text-align: center;
-    }
-
-    .valor h3 {
-        text-align: center;
-        font-size: 22px;
+        font-size: 28px;
+        color: #333;
         margin-bottom: 20px;
-        color: #f5f5f5;
     }
 
-    .valor p {
-        font-size: 16px;
-        color: #f5f5f5;
+    .datos-contacto ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .datos-contacto li {
+        font-size: 18px;
+        margin-bottom: 10px;
+        color: #555;
+    }
+
+    .datos-contacto a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .datos-contacto a:hover {
+        text-decoration: underline;
+    }
+
+    .seccion {
+        margin-bottom: 40px;
     }
 </style>
 
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}Sobre Nosotros - Pipe's Pastelería{% endblock title %}
-   
+{% block title %}Acerca de Mí - Pipe's Pastelería{% endblock title %}
+
 {% block contenido %}
-        <div class="hero-images">
-            <img src={% static 'img/Medialunas.jpg' %} alt="Imagen 1">
-            <img src={% static 'img/Medialuna1.jpg' %} alt="Imagen 2">
-            <img src={% static 'img/Apple Roll.jpg' %} alt="Imagen 3">
+    <div class="sobre-mi">
+        <h1>Sobre Mí</h1>
+        <p>¡Hola! Soy <strong>Nicolás Alvarez</strong>, <strong>Analista de Datos</strong> con más de 5 años de experiencia, especializado en equipos de <strong>Fraud Prevention</strong>. Actualmente vivo en Capital Federal, Argentina, donde me trasladé en septiembre de 2023 desde Uruguay para continuar mi carrera en <strong>Pedidos Ya</strong> como <strong>Fintech Fraud Sr. Analyst</strong>. En este rol, tengo la oportunidad de liderar proyectos clave, como el desarrollo de tableros del equipo, la definición y seguimiento de KPIs, la creación de alertas y la gestión de bases de datos. Tengo experiencia y conocimiento de herramientas y lenguajes como <strong>SQL</strong>, <strong>Tableau</strong>, <strong>Python</strong>, <strong>JavaScript</strong> y <strong>Power BI</strong>.</p>
+        
+        <p>Comencé mi carrera en <strong>Mercado Libre</strong> en 2019, donde me sumergí en el análisis de grandes volúmenes de datos para apoyar la toma de decisiones estratégicas, optimizar procesos y contribuir a la prevención de fraude. En 2021, fui <strong>tutor en CoderHouse</strong> para el curso de <strong>Data Analytics</strong>, una experiencia que me permitió compartir mis conocimientos con estudiantes interesados en el mundo del análisis de datos.</p>
+        
+
+        <div class="datos-contacto">
+            <h2>Datos de Contacto</h2>
+            <ul>
+                <li><strong>Email:</strong> nicoalvarezmaguna@gmail.com</li>
+                <li><strong>Teléfono:</strong> +54(9)1127977823</li>
+                <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/nicolasalvarezmaguna/" target="_blank">Visita mi perfil</a></li>
+            </ul>
         </div>
-        <div class="sobre-nosotros">
-            <p></p>
-            <h1>Sobre Nosotros</h1>
-            <p>En Pipe's Pastelería nos especializamos en la creación de viennoiserie artesanal, destacándonos en la elaboración de medialunas, croissants y otros deliciosos productos laminados. Nuestra pasión por la pastelería nos lleva a ofrecer a nuestros clientes un sabor único en cada bocado.</p>
-            <p>Con años de experiencia, trabajamos con los mejores ingredientes y técnicas tradicionales para producir productos frescos, suaves y sabrosos. En Pipe's Pastelería nos enorgullece ser parte de la tradición de la pastelería francesa, fusionándola con el toque casero que caracteriza nuestra marca.</p>
-            
-            <p></p>
-            <h1>Nuestros Valores</h1>
-            <div class="valores">
-                <div class="valor">
-                    <h3>Calidad</h3>
-                    <p>Nos comprometemos a utilizar solo los mejores ingredientes para garantizar un sabor excepcional en cada producto.</p>
-                </div>
-                <div class="valor">
-                    <h3>Pasión</h3>
-                    <p>Amamos lo que hacemos y nos esforzamos por ofrecer productos que hagan feliz a cada cliente.</p>
-                </div>
-                <div class="valor">
-                    <h3>Innovación</h3>
-                    <p>Siempre estamos buscando nuevas formas de sorprenderte con sabores y diseños únicos.</p>
-                </div>
-            </div>
-            <p></p>
-        </div>
+    </div>
 {% endblock contenido %}
-
-
 

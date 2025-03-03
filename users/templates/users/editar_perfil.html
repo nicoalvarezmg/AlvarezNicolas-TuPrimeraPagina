@@ -39,7 +39,7 @@
             form input[type="text"],
             form input[type="email"],
             form input[type="file"],
-            form input[type="date"]:focus,
+            form input[type="date"],
             form textarea {
                 width: 100%;
                 padding: 12px;
@@ -95,6 +95,7 @@
                 text-decoration: none;
                 position: relative;
                 transition: all 0.3s ease;
+                margin-button: 15px;
             }
             
             /* Efecto hover para el botón de submit */
@@ -104,7 +105,47 @@
                 border-color: #FF5733; /* Cambia el borde si lo deseas */
             }
 
+            /* Cambia el color del enlace de la imagen */
+            a[href*="media/avatares"] {
+                color: red;  /* Cambia el color del enlace */
+                font-weight: bold;  /* Lo pone en negrita */
+                text-decoration: none;  /* Quita el subrayado */
+            }
+            
+            a[href*="media/avatares"]:hover {
+                color: darkred;  /* Cambia el color al pasar el mouse */
+                text-decoration: underline;  /* Añade subrayado en hover */
+            }
 
+            /* Estiliza el párrafo */
+            .password-link {
+                color: white;  /* Texto en blanco */
+                font-size: 16px;  /* Tamaño del texto */
+                text-align: center;  /* Centrado */
+                
+            }
+            
+            /* Estiliza el enlace dentro del párrafo */
+            .password-link a {
+                color: #FF5733;  
+                font-weight: bold;  
+                text-decoration: none; 
+                margin-top: 30px;
+            }
+            
+            /* Cambia el color del enlace al pasar el mouse */
+            .password-link a:hover {
+                color: darkorange;  
+                text-decoration: underline; 
+            }
+            
+            /* Cambia el color del enlace cuando está seleccionado */
+            .password-link a:active, 
+            .password-link a:focus {
+                color: white;  /* Se vuelve blanco al hacer clic */
+            }
+            
+            
             
     
             /* Estilos responsivos */
@@ -120,6 +161,7 @@
                     padding: 12px;
                 }
             }
+
             
 </style>
     
@@ -149,6 +191,10 @@
                 <!-- Botón para guardar los cambios -->
                 <input type="submit" value="Editar" class='btn-submit'>
             </form>
+            <p class="password-link">
+                ¿Quieres cambiar tu contraseña? 
+                <a href="{% url 'cambiar_contraseña' %}">Haz clic aquí</a>.
+            </p>
         </div> 
 
 {% endblock contenido %}

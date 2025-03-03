@@ -149,10 +149,11 @@
         </div>
         
         <!-- Información del usuario -->
+        <p><strong>Usuario:</strong> {{ user.username }}</p>
         <p><strong>Nombre:</strong> {{ user.first_name }} {{ user.last_name }}</p>
         <p><strong>Email:</strong> {{ user.email }}</p>
         <p><strong>Fecha de Registro:</strong> {{ user.date_joined|date:"d M Y" }}</p>
-        
+        <p><strong>Fecha de Nacimiento:</strong> {{ request.user.infoextra.fecha_nacimiento|date:"d M Y" }}</p>
         <!-- Botón para editar el perfil -->
         <a href="{% url 'editar_perfil' %}" class="edit-btn">Editar Perfil</a>
     </div>

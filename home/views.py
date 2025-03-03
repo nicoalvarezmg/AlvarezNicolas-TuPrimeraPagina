@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import UpdateView, DeleteView
 from django.urls import reverse_lazy
+from django.forms.widgets import ClearableFileInput
 
 
 # Create your views here.
@@ -68,16 +69,21 @@ def ver_producto(request, producto_id):
     producto = get_object_or_404(Productos, id=producto_id) 
     return render(request, 'home/producto.html', {'producto': producto})
  
-class modificarProductoView(LoginRequiredMixin, UpdateView):
-     model = Productos
-     template_name = "home/modificar_producto.html"
-     fields = '__all__'
-     success_url = reverse_lazy('productos')
      
 class eliminarProductoView(LoginRequiredMixin, DeleteView):
      model = Productos
      template_name = 'home/eliminar_producto.html' 
      success_url = reverse_lazy('productos')
+   
+    
+class ModificarProductoView(LoginRequiredMixin, UpdateView):
+    model = Productos
+    form_class = CrearProducto
+    template_name = "home/modificar_producto.html"
+    success_url = reverse_lazy('productos')
+
+    def get_object(self, queryset=None):
+        return Productos.objects.get(id=self.kwargs['pk'])
    
  
    

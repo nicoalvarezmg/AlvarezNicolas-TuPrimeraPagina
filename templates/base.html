@@ -20,9 +20,9 @@
     <nav>
         <div class="nav-links">
            <a href={% url "pipes_home" %}>Inicio</a>
-           <a href={% url "sobre_nosotros" %}>Sobre Nosotros</a>
            <a href={% url "productos" %}>Nuestros Productos</a>
            <a href={% url "comentario" %}>Contacto</a>
+           <a href={% url "sobre_nosotros" %}>Acerca de Mi</a>
         </div>
         {% if request.user.is_authenticated %}
         <a href="{% url 'ver_perfil' %}" class="user-info">

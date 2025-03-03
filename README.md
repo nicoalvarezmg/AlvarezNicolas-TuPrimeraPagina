@@ -9,15 +9,17 @@ Este es un proyecto desarrollado en Python utilizando el framework Django. Conti
 ```
 
 - fotos/                # Carpeta para almacenar imágenes
-- home/                 # Carpeta principal del proyecto
+- home/                 # Carpeta principal de la aplicación home
   - migrations/         # Carpeta que contiene las migraciones de los modelos
   - templates/          # Archivos HTML para la vista
+  - static/             # Donde estan los estaticos del proyecto (css y img)
   - forms.py            # Formularios de Django
   - models.py           # Definición de modelos de base de datos
   - views.py            # Lógica de las vistas
   - urls.py             # Definición de rutas
-- proyecto/             # Carpeta con las configuraciones principales del proyecto
+- proyecto/             # Carpeta con las configuraciones principales del proyecto (Tiene las mismas fileds que home)
 - templates/            # Carpeta global de templates (ej. base.html) Ahora no se esta usando pero la idea es luego heredar las configuraciones principales de esta carpeta.
+- users/                # Carpeta principal de la aplicación users
 - manage.py             # Archivo principal para ejecutar comandos Django
 - initial_data.json     # JSON con datos iniciales de productos
 - requirements.txt      # Lista de dependencias necesarias para el proyecto
