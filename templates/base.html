@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+
+{% load static %}
+
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}{% endblock title %}</title>
+        <link rel="icon" href="{% static 'LogoPipes.png' %}" type="image/png">
+
+    
+
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+</head>
+<body>
+
+    <nav>
+        <div class="nav-links">
+           <a href={% url "pipes_home" %}>Inicio</a>
+           <a href={% url "sobre_nosotros" %}>Sobre Nosotros</a>
+           <a href={% url "productos" %}>Nuestros Productos</a>
+           <a href={% url "comentario" %}>Contacto</a>
+        </div>
+        {% if request.user.is_authenticated %}
+        <a href="{% url 'ver_perfil' %}" class="user-info">
+            {% if request.user.infoextra.avatar %}
+            <img src="{{ request.user.infoextra.avatar.url }}" alt="Avatar" class="avatar">
+            {% endif %}
+            <span class="user-name">{{ request.user.username }}</span>
+        </a>        
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <input  type="submit" class="btn-logout" value="Cerrar Sesión">
+        </form>
+        {% else %}
+        <a href="{% url 'login' %}" class="btn-login">Iniciar Sesión</a>
+        {% endif %}
+    </nav>
+    
+
+    <section class="hero">
+
+        {% block contenido %}{% endblock contenido %}
+
+    </section>
+
+
+    <div class="footer">
+        © 2025 Pipe's Pastelería. Todos los derechos reservados.
+    </div>
+
+</body>
+</html>

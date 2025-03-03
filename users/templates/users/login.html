@@ -1,0 +1,119 @@
+<style>
+    /* Estilos para el contenedor del formulario */
+    .form-container {
+        width: 100%;
+        max-width: 400px;
+        margin: 100px auto; /* Centra el formulario vertical y horizontalmente */
+        padding: 30px;
+        background: white;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        text-align: center;
+    }
+    
+    /* Título del formulario */
+    .form-container h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #333;
+        font-weight: bold;
+    }
+    
+    /* Estilos para el formulario */
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /* Estilos para los campos de texto (usuario y contraseña) */
+    form input[type="text"],
+    form input[type="password"] {
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        color: #333;
+        background-color: #f9f9f9; /* Fondo ligeramente gris para los inputs */
+        transition: border-color 0.3s ease-in-out;
+    }
+    
+    /* Cambio de borde al enfocar los campos */
+    form input[type="text"]:focus,
+    form input[type="password"]:focus {
+        border-color: #FF5733; /* Resalta con el color del botón */
+        outline: none;
+    }
+    
+    /* Estilos para el botón de submit */
+    form input[type="submit"] {
+        background-color: #FF5733;
+        color: white;
+        border: none;
+        padding: 14px;
+        border-radius: 5px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s ease-in-out;
+    }
+    
+    /* Estilos cuando se pasa el ratón sobre el botón */
+    form input[type="submit"]:hover {
+        background-color: #e64a2e;
+    }
+    
+    /* Estilos para el texto de registro */
+    .register-text {
+        margin-top: 15px;
+        font-size: 14px;
+        color: #333;
+    }
+    
+    /* Estilo del enlace de registro */
+    .register-text a {
+        color: #FF5733;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    
+    .register-text a:hover {
+        text-decoration: underline;
+    }
+    
+    /* Estilos responsivos */
+    @media (max-width: 768px) {
+        .form-container {
+            width: 80%;
+            padding: 20px;
+        }
+        .form-container h1 {
+            font-size: 20px;
+        }
+        form input[type="submit"] {
+            padding: 12px;
+        }
+    }    
+</style>
+
+{% extends "base.html" %}
+
+{% block title %}Logueo de usuarios{% endblock title %}
+
+{% block contenido %}
+    <div class="form-container">
+        <h1>Iniciar Sesión</h1>
+
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ formulario }}
+            <input type="submit" value="Iniciar Sesión">
+        </form>
+
+        <!-- Texto para usuarios nuevos -->
+        <div class="register-text">
+            <p>Si aún no tienes usuario, <a href="{% url 'registro' %}">haz click aquí para registrarte</a></p>
+        </div>
+    </div>
+{% endblock contenido %}

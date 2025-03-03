@@ -1,3 +1,4 @@
+
 [
   {
     "model": "home.productos",
@@ -5,7 +6,7 @@
     "fields": {
       "nombre": "Medialuna",
       "fecha_creacion": "2025-02-16T03:51:18.433Z",
-      "foto": "https://raw.githubusercontent.com/nicoalvarezmg/AlvarezNicolas-TuPrimeraPagina/refs/heads/main/fotos/Medialuna.jpg",
+      "foto": "static/img/Medialuna.jpg",
       "precio": 2200.0,
       "stock": 20
     }
@@ -16,7 +17,7 @@
     "fields": {
       "nombre": "Croissant",
       "fecha_creacion": "2025-02-16T04:09:08.846Z",
-      "foto": "https://raw.githubusercontent.com/nicoalvarezmg/AlvarezNicolas-TuPrimeraPagina/refs/heads/main/fotos/Croissant.jpg",
+      "foto": "static/img/Croissant.jpg",
       "precio": 3500.0,
       "stock": 25
     }
@@ -27,7 +28,7 @@
     "fields": {
       "nombre": "Apple Roll",
       "fecha_creacion": "2025-02-16T16:46:36.806Z",
-      "foto": "https://raw.githubusercontent.com/nicoalvarezmg/AlvarezNicolas-TuPrimeraPagina/refs/heads/main/fotos/Imagen%20de%20WhatsApp%202025-02-15%20a%20las%2021.04.49_6a608009.jpg",
+      "foto": "static/img/Apple%20Roll.jpg",
       "precio": 2800.0,
       "stock": 33
     }
@@ -38,7 +39,7 @@
     "fields": {
       "nombre": "Danesa",
       "fecha_creacion": "2025-02-16T16:48:55.243Z",
-      "foto": "https://raw.githubusercontent.com/nicoalvarezmg/AlvarezNicolas-TuPrimeraPagina/refs/heads/main/fotos/Danessa.jpg",
+      "foto": "static/img/Danessa.jpg",
       "precio": 3500.0,
       "stock": 12
     }
@@ -49,7 +50,7 @@
     "fields": {
       "nombre": "Pain au Chocolat",
       "fecha_creacion": "2025-02-16T16:49:59.516Z",
-      "foto": "https://raw.githubusercontent.com/nicoalvarezmg/AlvarezNicolas-TuPrimeraPagina/refs/heads/main/fotos/Pan%20de%20chocolate.jpg",
+      "foto": "static/img/Pan%20de%20chocolate.jpg",
       "precio": 3900.0,
       "stock": 20
     }

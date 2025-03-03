@@ -1,0 +1,160 @@
+<style>
+    /* Contenedor principal del perfil */
+    .profile-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); 
+        width: 80%;
+        max-width: 800px;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        z-index: 2;
+        margin-bottom: 15px;
+    }
+    
+    /* Estilo para el título del perfil */
+    .profile-container h1 {
+        text-align: center;
+        font-size: 32px;
+        margin: 15px;
+        margin-bottom: 30px;
+        color: #f5f5f5;
+    }
+    
+    /* Estilo para la imagen de perfil */
+    .profile-container .image-preview {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 20px;
+        margin: 0 auto;
+        display: block;
+    }
+    
+    /* Estilo para el texto de perfil */
+    .profile-container p {
+        color:rgb(255, 255, 255);
+        font-size: 18px;
+        margin-top: 15px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    
+    /* Estilo para el botón de editar */
+    .edit-btn {
+        background-color: #FF5733;
+        color: white;
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-weight: bold;
+        border: 2px solid white;
+        cursor: pointer;
+        font-size: 16px;
+        text-decoration: none;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+    
+    .edit-btn:hover {
+        background-color: #f5f5f5;
+        color: #FF5733; /* Cambia el color del texto si lo deseas */
+        border-color: #FF5733; /* Cambia el borde si lo deseas */
+    }
+    
+    /* Estilos para los campos de texto del formulario */
+    form input[type="text"],
+    form input[type="email"],
+    form input[type="file"],
+    form input[type="date"]:focus,
+    form textarea {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        color: #f5f5f5;
+        background-color: rgba(255, 88, 51, 0.07);
+        box-sizing: border-box;
+    }
+    
+    /* Estilo para el botón de submit */
+    .btn-submit {
+        background-color: #FF5733;
+        color: white;
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-weight: bold;
+        border: 2px solid white;
+        cursor: pointer;
+        font-size: 16px;
+        text-align: center;
+        text-decoration: none;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+    
+    .btn-submit:hover {
+        background-color: #f5f5f5;
+        color: #FF5733;
+        border-color: #FF5733;
+    }
+    
+    /* Estilos responsivos */
+    @media (max-width: 768px) {
+        .profile-container {
+            width: 90%;
+        }
+    
+        .profile-container h1 {
+            font-size: 24px;
+        }
+    
+        form input[type="submit"] {
+            padding: 12px;
+        }
+    }
+    
+</style>
+
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Perfil del Usuario{% endblock title %}
+
+{% block contenido %}
+
+        <div class="hero-images">
+            <img src={% static 'img/Medialunas.jpg' %} alt="Imagen 1">
+            <img src={% static 'img/Medialuna1.jpg' %} alt="Imagen 2">
+            <img src={% static 'img/Apple Roll.jpg' %} alt="Imagen 3">
+        </div>
+
+    <!-- Contenedor principal del perfil -->
+    <div class="profile-container">
+        <h1>Perfil del Usuario</h1>
+        
+        <!-- Imagen de perfil -->
+        <div class="image-container">
+            {% if request.user.infoextra.avatar %}
+                <img src="{{ request.user.infoextra.avatar.url }}" class="image-preview" alt="Avatar">
+            {% else %}
+                <img src="{% static 'img/avatar-predeterminado.jpg' %}" class="image-preview" alt="Avatar predeterminado">
+            {% endif %}
+        </div>
+        
+        <!-- Información del usuario -->
+        <p><strong>Nombre:</strong> {{ user.first_name }} {{ user.last_name }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Fecha de Registro:</strong> {{ user.date_joined|date:"d M Y" }}</p>
+        
+        <!-- Botón para editar el perfil -->
+        <a href="{% url 'editar_perfil' %}" class="edit-btn">Editar Perfil</a>
+    </div>
+
+{% endblock contenido %}
