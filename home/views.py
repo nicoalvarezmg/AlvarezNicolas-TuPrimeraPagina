@@ -14,7 +14,6 @@ from django.forms.widgets import ClearableFileInput
 def home(request):
    return render(request, 'home/home.html')
 
-@login_required
 def comentario(request):   
    formulario = CrearContacto()
    if request.method == "POST":
@@ -30,7 +29,6 @@ def comentario(request):
          return redirect("gracias")    
    return render(request, 'home/comentario.html', {'formulario' : formulario})
 
-@login_required
 def gracias(request):
    return render(request, 'home/gracias.html')
 
