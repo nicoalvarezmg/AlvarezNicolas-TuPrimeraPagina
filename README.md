@@ -74,3 +74,10 @@ Después de ejecutar el servidor, puedes acceder a la aplicación en tu navegado
 ```
 http://127.0.0.1:8000/pipes-home/
 ```
+
+## Video
+Link a Drive para acceder al video con la muestra de la web:
+
+```
+https://drive.google.com/drive/folders/1dRxYvwve3LpWv7xf5NWQSQEVqgd69Lzk
+```
